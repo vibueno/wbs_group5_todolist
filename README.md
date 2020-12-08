@@ -14,6 +14,7 @@ This project has been made using vanilla JS only.
 ## Guidelines
 * [CSS Rule order](https://9elements.com/css-rule-order)
 * [Git Workflow](https://widukin.github.io/NotAnotherCookBook/asides/github_workflow/gitworkflow.html)
+* [JS Doc](https://jsdoc.app/)
 
 ## Helpers
 * [Prettier](https://prettier.io/)

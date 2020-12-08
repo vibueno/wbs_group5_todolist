@@ -14,7 +14,11 @@ This project has been made using vanilla JS only.
 ## Guidelines
 * [CSS Rule order](https://9elements.com/css-rule-order)
 * [Git Workflow](https://widukin.github.io/NotAnotherCookBook/asides/github_workflow/gitworkflow.html)
+
+## Helpers
 * [Prettier](https://prettier.io/)
+* [JSHint](https://jshint.com/)
+
 
 ## Validations
 * [HTML (W3C)](https://validator.w3.org)

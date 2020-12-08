@@ -148,3 +148,7 @@ main {
     background: #ccc;
     color: #1A1A1A;
 }
+
+#finished-task {
+    text-decoration: line-through;
+}

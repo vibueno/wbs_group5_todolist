@@ -17,10 +17,16 @@ body {
     background: linear-gradient(135deg, #4003cf 5%, #0d041b 80%) no-repeat center center fixed;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /*-------- Section Input ------*/
 
 .section-input {
-    width: 70%;
+    width: 60%;
     margin: 10rem auto;
     background-color: #1A1A1A;
     min-height: 30rem;
@@ -56,8 +62,42 @@ body {
     background-color: #282828;
     color: #fff;
     border: none;
-    
+    font-family: "Montserrat" sans-serif;
 }
 
 
 /*-------- Section Tasks ------*/
+
+.section-tasks {
+    width: 60%;
+    min-height: 30rem;
+    background-color:  #1A1A1A;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-tasks__heading {
+    text-align: center;
+    font-size: 4rem;
+    padding: 6rem 0;
+}
+
+.section-tasks__task-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.section-tasks__task {
+    width: 95%;
+    height: 3rem;
+    background: #282828;
+    display: flex;
+    flex-direction: row;
+}
+
+.section-tasks__task-desc {
+    width: 70%;
+}

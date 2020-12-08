@@ -62,14 +62,17 @@ main {
     background-color: #282828;
     color: #fff;
     border: none;
+    font-size: 2rem;
     font-family: "Montserrat" sans-serif;
+    border-radius: .3rem;
+    cursor: pointer;
 }
 
 
 /*-------- Section Tasks ------*/
 
 .section-tasks {
-    width: 60%;
+    width: 50%;
     min-height: 30rem;
     background-color:  #1A1A1A;
     margin: 0 auto;
@@ -96,8 +99,23 @@ main {
     background: #282828;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    font-size: 1.8rem;
 }
 
 .section-tasks__task-desc {
-    width: 70%;
+    width: 80%;
+    height: 2.5rem;
+    margin: auto 0;
+    font-size: 2rem;
+}
+
+.section-tasks__task-button {
+    height: 2.5rem;
+    margin: auto 1rem;
+    width: 5%;
+    color: #fff;
+    background: #1A1A1A;
+    border: none;
+    cursor: pointer;
 }

@@ -40,6 +40,7 @@ main {
     padding: 6rem 0;
 }
 
+.section-tasks__finished-wrapper,
 .section-input__input-wrapper {
     width: 100%;
     display: flex;
@@ -91,6 +92,7 @@ main {
     color: #ccc;
     display: flex;
     flex-direction: column;
+    padding-bottom: 6rem;
 }
 
 .section-tasks__heading {

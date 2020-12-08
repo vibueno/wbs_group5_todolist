@@ -14,31 +14,36 @@
     <link rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-    <!--David section-->
+  <!--David section-->
   <main>
     <section class="section-input">
       <h1 class="section-input__heading">TODO List</h1>
       <div class="section-input__input-wrapper">
-        <input  id= "user_input" class="section-input__input"type="text">
+        <input  id= "user_input" class="section-input__input" type="text" maxlength="45">
         <button id="add_task" class="section-input__button">Add Task</button>
       </div>
     </section>
-      
-  
-
     <!--Memo section-->
-    <div>
-      
-      <ul><p>test <button><i class="far fa-check-circle"></i></button><button><i class="fas fa-trash-alt"></i></button></p></ul> 
-      
-    
-    
-    
-    
-    </div>
+    <section class="section-tasks">
+      <h1 class="section-tasks__heading">Tasks</h1>
+      <div class="section-tasks__task-wrapper">
+        <div id="task" class="section-tasks__task">
+          <p class="section-tasks__task-desc">Test</p>
+          <button id="finish-task" class="section-tasks__task-button"><i class="far fa-check-circle"></i></button>
+          <button id="remove-task" class="section-tasks__task-button"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </div>
+      <h1 class="section-tasks__heading">Finished Tasks</h1>
+      <div class="section-tasks__finished-wrapper">
+        <div id="finished-task" class="section-tasks__task">
+          <p class="section-tasks__task-desc">Finished</p>
+          <button id="redo-task" class="section-tasks__task-button"><i class="fas fa-redo"></i></button>
+          <button id="remove-task" class="section-tasks__task-button"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </div>
+    </section>
 
 
-    
     </main>
     <script src="./js/functions.js"></script>
   </body>

@@ -1,11 +1,15 @@
-# NotAnotherCookBook
+# TODO
 
 ## Description
 
-This project was made for a WBS Coding School assignment.
+This project is a classic TODO list, created for a WBS Coding School assignment.
 
 ## Live
 For a live version of *TODO*, visit [GitHub Pages](https://memocan40.github.io/TodoList/public/).
+
+## Programming
+
+This project has been made using vanilla JS only.
 
 ## Guidelines
 * [CSS Rule order](https://9elements.com/css-rule-order)

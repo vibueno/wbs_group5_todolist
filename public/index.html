@@ -19,7 +19,7 @@
     <section class="section-input">
       <h1 class="section-input__heading">TODO List</h1>
       <div class="section-input__input-wrapper">
-        <input  id= "user_input" class="section-input__input"type="text">
+        <input  id= "user_input" class="section-input__input" type="text" maxlength="45">
         <button id="add_task" class="section-input__button">Add Task</button>
       </div>
     </section>
@@ -32,7 +32,12 @@
       <div class="section-tasks__task-wrapper">
         <div id="task" class="section-tasks__task">
           <p class="section-tasks__task-desc">Test</p>
-          <button id="finished-task" class="section-tasks__task-button"><i class="far fa-check-circle"></i></button>
+          <button id="finish-task" class="section-tasks__task-button"><i class="far fa-check-circle"></i></button>
+          <button id="remove-task" class="section-tasks__task-button"><i class="fas fa-trash-alt"></i></button>
+        </div>
+        <div id="task" class="section-tasks__task">
+          <p class="section-tasks__task-desc">Finished</p>
+          <button id="redo-task" class="section-tasks__task-button"><i class="fas fa-redo"></i></button>
           <button id="remove-task" class="section-tasks__task-button"><i class="fas fa-trash-alt"></i></button>
         </div>
       </div>

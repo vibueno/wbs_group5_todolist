@@ -37,6 +37,9 @@ function addTask() {
 
 /**
  * @description Deletes a task from the task list.
+ *
+ * @param {Object} event contains information about the event
+ * whose listener called this function
  */
 const deleteTask = event => {
   //user has clicked on button but not on icon

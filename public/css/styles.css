@@ -44,7 +44,7 @@ main {
     align-items: center;
 }
 
-.section-tasks__finished-wrapper,
+
 .section-input__input-wrapper {
     width: 100%;
     display: flex;
@@ -106,6 +106,7 @@ main {
     padding: 2rem 0;
 }
 
+.section-tasks__finished-wrapper,
 .section-tasks__todo-wrapper {
     width: 100%;
     display: flex;
@@ -117,10 +118,8 @@ main {
 }
 
 .section-tasks__finished-wrapper {
-    padding: 2.5rem 0;
     border-top: 2px solid #1A1A1A;
     border-radius: 0 0 1rem 1rem;
-    background-color: #1F1F1F;
 }
 
 .section-tasks__task {

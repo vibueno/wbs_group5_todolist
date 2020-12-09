@@ -14,7 +14,7 @@ html {
 
 body {
     font-family: "Montserrat", sans-serif;
-    background: linear-gradient(135deg, #4003cf 5%, #0d041b 80%) no-repeat center center fixed;
+    background: linear-gradient(180deg, #4003cf 5%, #0d041b 80%) no-repeat center center fixed;
 }
 
 main {
@@ -89,19 +89,18 @@ main {
 
 .section-tasks {
     width: 50%;
-    min-height: 30rem;
+    min-height: 25rem;
     background-color:  #282828;
     margin: 1rem auto;
     color: #ccc;
     display: flex;
     flex-direction: column;
-    padding-bottom: 6rem;
 }
 
 .section-tasks__heading {
     text-align: center;
     font-size: 4rem;
-    padding: 6rem 0;
+    padding: 2rem 0;
 }
 
 .section-tasks__todo-wrapper {
@@ -110,12 +109,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2.5rem;
+    padding: 2.5rem 0;
+    background-color: #1F1F1F;
 }
 
 .section-tasks__finished-wrapper {
-    padding-top: 2.5rem;
+    padding: 2.5rem 0;
     border-top: 2px solid #1A1A1A;
+    background-color: #1F1F1F;
 }
 
 .section-tasks__task {
@@ -158,6 +159,6 @@ main {
     color: #1A1A1A;
 }
 
-#finished-task {
+.finished {
     text-decoration: line-through;
 }

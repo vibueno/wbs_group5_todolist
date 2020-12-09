@@ -19,13 +19,14 @@ const newTaskInput = document.getElementById('user_input');
  */
 function addTask() {
   if (newTaskInput.value) {
-    let newTaskHTML = `<div class="section-tasks__task">
-          <p class="section-tasks__task-desc">
-      ${newTaskInput.value}
-      </p>
-          <button class="section-tasks__task-button done-task"><i class="fas fa-check"></i></button>
-          <button class="section-tasks__task-button delete-task"><i class="fas fa-trash-alt"></i></button>
-        </div>`;
+    let newTaskHTML = `
+      <div class="section-tasks__task">
+        <p class="section-tasks__task-desc">
+        ${newTaskInput.value}
+        </p>
+        <button class="section-tasks__task-button done-task"><i class="fas fa-check"></i></button>
+        <button class="section-tasks__task-button delete-task"><i class="fas fa-trash-alt"></i></button>
+      </div>`;
     TODOList.innerHTML += newTaskHTML;
   } else {
     alert('Please add some task');

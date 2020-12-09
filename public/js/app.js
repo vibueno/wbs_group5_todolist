@@ -41,7 +41,7 @@ const deleteTask = event => {
   if (event.target.classList.contains('delete-task')) {
     event.target.parentNode.remove();
     //user has clicked on icon
-  } else if (event.target.classList.contains('fas')) {
+  } else if (event.target.parentNode.classList.contains('delete-task')) {
     event.target.parentNode.parentNode.remove();
   }
 };

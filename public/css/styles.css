@@ -23,21 +23,24 @@ main {
     justify-content: center;
 }
 
+.main-heading {
+    text-align: center;
+    font-size: 6rem;
+    padding: 6rem 0;
+    color: #ccc;
+}
+
 /*-------- Section Input ------*/
 
 .section-input {
     width: 55%;
-    margin: 10rem auto 0 auto;
+    margin: 3rem auto 0 auto;
     background-color: #1A1A1A;
-    min-height: 30rem;
+    min-height: 20rem;
     color: #ccc;
     box-shadow: 0 6px 3px -3px #0c0c0c;
-}
-
-.section-input__heading {
-    text-align: center;
-    font-size: 4rem;
-    padding: 6rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .section-tasks__finished-wrapper,
@@ -45,7 +48,7 @@ main {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center;    
 }
 
 .section-input__input {
@@ -101,12 +104,18 @@ main {
     padding: 6rem 0;
 }
 
-.section-tasks__task-wrapper {
+.section-tasks__todo-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 2.5rem;
+}
+
+.section-tasks__finished-wrapper {
+    padding-top: 2.5rem;
+    border-top: 2px solid #1A1A1A;
 }
 
 .section-tasks__task {

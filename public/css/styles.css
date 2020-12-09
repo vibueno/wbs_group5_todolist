@@ -17,14 +17,21 @@ body {
     background: linear-gradient(135deg, #4003cf 5%, #0d041b 80%) no-repeat center center fixed;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /*-------- Section Input ------*/
 
 .section-input {
-    width: 70%;
-    margin: 10rem auto;
+    width: 55%;
+    margin: 10rem auto 0 auto;
     background-color: #1A1A1A;
     min-height: 30rem;
-    color: #fff;
+    color: #ccc;
+    box-shadow: 0 6px 3px -3px #0c0c0c;
 }
 
 .section-input__heading {
@@ -33,6 +40,7 @@ body {
     padding: 6rem 0;
 }
 
+.section-tasks__finished-wrapper,
 .section-input__input-wrapper {
     width: 100%;
     display: flex;
@@ -45,19 +53,102 @@ body {
     height: 3rem;
     font-size: 2rem;
     margin-right: 4rem;
-    color: #fff;
+    color: #ccc;
     background-color: #282828;
     border: none;
+    transition: box-shadow .2s;
+}
+
+.section-input__input:hover {
+    box-shadow: 0 0 4px #ccc;
 }
 
 .section-input__button {
     width: 10%;
     height: 3rem;
     background-color: #282828;
-    color: #fff;
+    color: #ccc;
     border: none;
-    
+    font-size: 2rem;
+    font-family: "Montserrat" sans-serif;
+    border-radius: .3rem;
+    cursor: pointer;
+    transition: box-shadow .2s;
 }
+
+.section-input__button:hover {
+    box-shadow: 0 0 4px #ccc;
+}
+    
 
 
 /*-------- Section Tasks ------*/
+
+.section-tasks {
+    width: 50%;
+    min-height: 30rem;
+    background-color:  #282828;
+    margin: 1rem auto;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6rem;
+}
+
+.section-tasks__heading {
+    text-align: center;
+    font-size: 4rem;
+    padding: 6rem 0;
+}
+
+.section-tasks__task-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-tasks__task {
+    width: 95%;
+    height: 3rem;
+    margin: 1rem 0;
+    background: #1A1A1A;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: box-shadow .2s;
+}
+
+.section-tasks__task:hover {
+    box-shadow: 0 0 4px #ccc;
+}
+
+.section-tasks__task-desc {
+    width: 80%;
+    height: 2.5rem;
+    margin: auto 0;
+    font-size: 2rem;
+}
+
+.section-tasks__task-button {
+    height: 2.5rem;
+    margin: auto 1rem;
+    width: 5%;
+    color: #ccc;
+    background: #1A1A1A;
+    border: none;
+    cursor: pointer;
+    border-radius: .3rem;
+    transition: background .2s, color .2s;
+}
+
+.section-tasks__task-button:hover {
+    background: #ccc;
+    color: #1A1A1A;
+}
+
+#finished-task {
+    text-decoration: line-through;
+}

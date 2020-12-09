@@ -1,14 +1,12 @@
 # TODO
 
 ## Description
-
 This project is a classic TODO list, created for a WBS Coding School assignment.
 
 ## Live
 For a live version of *TODO*, visit [GitHub Pages](https://memocan40.github.io/TodoList/public/).
 
 ## Programming
-
 This project has been made using vanilla JS only.
 
 ## Guidelines
@@ -21,6 +19,6 @@ This project has been made using vanilla JS only.
 * [JSHint](https://jshint.com/)
 
 
-## Validations
+## Validators
 * [HTML (W3C)](https://validator.w3.org)
 * [CSS (W3C)](https://jigsaw.w3.org/css-validator)

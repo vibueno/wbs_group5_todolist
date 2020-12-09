@@ -4,9 +4,11 @@
  *
  */
 
-const btnAddTask = document.getElementById('add_task');
-const TODOList = document.querySelector('.section-tasks__todo-wrapper');
 const newTaskInput = document.getElementById('user_input');
+const btnAddTask = document.getElementById('add_task');
+
+const TODOList = document.querySelector('.section-tasks__todo-wrapper');
+const DONEList = document.querySelector('.section-tasks__finished-wrapper');
 
 /*
  *
@@ -56,8 +58,9 @@ btnAddTask.addEventListener('click', addTask);
 
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);
+DONEList.addEventListener('click', deleteTask);
 
-document.getElementById('add_task').addEventListener(
+btnAddTask.addEventListener(
   'click',
   function (e) {
     e.preventDefault();

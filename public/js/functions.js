@@ -1,13 +1,20 @@
 const button = document.getElementById("add_task");
 const container = document.getElementById("tasks");
 const input  = document.getElementById("user_input");
-let  newTask = ``;
 
 
  function AddTask() {
-    let paragraph = document.createElement("p");
-    paragraph.innerText = input.value;
-    container.appendChild(paragraph);
+    const Parent = document.querySelector(".section-tasks__todo-wrapper");
+    const input = document.getElementById("user_input").value;
+    let  newTask = `<div class="section-tasks__task">
+          <p class="section-tasks__task-desc">`+ input +`</p>
+          <button class="section-tasks__task-button"><i class="fas fa-check"></i></button>
+          <button class="section-tasks__task-button"><i class="fas fa-trash-alt"></i></button>
+        </div>`;
+    parent.appendchild(newTask);
+
+
+    
     
     
 }

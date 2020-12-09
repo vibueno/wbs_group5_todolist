@@ -14,16 +14,15 @@
     <link rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
-  <!--David section-->
+
   <main>
     <h1 class="main-heading">TODO List</h1>
     <section class="section-input">
       <form class="section-input__input-wrapper">
-        <input  id="user_input" class="section-input__input" type="text" maxlength="45" placeholder="What do you want to do ?">
-        <input id="add_task" class="section-input__button" type="submit" value="Add"></input>
+        <input  id="user_input" class="section-input__input" type="text" minlength="3" maxlength="45" placeholder="What do you want to do ?" required />
+        <input id="add_task" class="section-input__button" type="submit" value="Add" />
       </form>
     </section>
-    <!--Memo section-->
     <section class="section-tasks">
       <h2 class="section-tasks__heading">Tasks</h2>
       <div class="section-tasks__todo-wrapper">

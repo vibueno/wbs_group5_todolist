@@ -36,14 +36,15 @@ main {
     width: 55%;
     margin: 3rem auto 0 auto;
     background-color: #1A1A1A;
-    min-height: 20rem;
+    min-height: 15rem;
     color: #ccc;
     box-shadow: 0 6px 3px -3px #0c0c0c;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
 }
 
-.section-tasks__finished-wrapper,
+
 .section-input__input-wrapper {
     width: 100%;
     display: flex;
@@ -56,6 +57,7 @@ main {
     height: 3rem;
     font-size: 2rem;
     margin-right: 4rem;
+    padding-left: 2%;
     color: #ccc;
     background-color: #282828;
     border: none;
@@ -73,7 +75,7 @@ main {
     color: #ccc;
     border: none;
     font-size: 2rem;
-    font-family: "Montserrat" sans-serif;
+    font-family: "Montserrat", sans-serif;
     border-radius: .3rem;
     cursor: pointer;
     transition: box-shadow .2s;
@@ -95,14 +97,16 @@ main {
     color: #ccc;
     display: flex;
     flex-direction: column;
+    border-radius: 1rem;
 }
 
 .section-tasks__heading {
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.5rem;
     padding: 2rem 0;
 }
 
+.section-tasks__finished-wrapper,
 .section-tasks__todo-wrapper {
     width: 100%;
     display: flex;
@@ -114,9 +118,8 @@ main {
 }
 
 .section-tasks__finished-wrapper {
-    padding: 2.5rem 0;
     border-top: 2px solid #1A1A1A;
-    background-color: #1F1F1F;
+    border-radius: 0 0 1rem 1rem;
 }
 
 .section-tasks__task {
@@ -151,12 +154,13 @@ main {
     border: none;
     cursor: pointer;
     border-radius: .3rem;
-    transition: background .2s, color .2s;
+    transition: background .2s, color .2s, transform .2s;
 }
 
 .section-tasks__task-button:hover {
     background: #ccc;
     color: #1A1A1A;
+    transform: scale(1.2);
 }
 
 .finished {

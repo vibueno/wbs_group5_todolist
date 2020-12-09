@@ -1,13 +1,16 @@
-let button = document.getElementById("button");
-let container = document.getElementById("container");
-let input  = document.getElementById("input");
+const button = document.getElementById("add_task");
+const container = document.getElementById("tasks");
+const input  = document.getElementById("user_input");
 
 
-button.addEventListener("click",()=>{
-    var paragraph = document.createElement("p");
+ const AddTask=()=>{
+     let paragraph = document.createElement("p");
     paragraph.innerText=input.value;
     container.appendChild(paragraph);
-})
+}
+
+
+button.addEventListener("click",AddTask);
 
 
 

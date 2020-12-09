@@ -11,44 +11,16 @@ const input  = document.getElementById("user_input");
           <button class="section-tasks__task-button"><i class="fas fa-check"></i></button>
           <button class="section-tasks__task-button"><i class="fas fa-trash-alt"></i></button>
         </div>`;
-    parent.appendchild(newTask);
-
+    Parent.innerHTML+=newTask;
 
     
     
     
 }
 
-
 button.addEventListener("click",AddTask);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+document.getElementById("add_task").addEventListener("click", function(e){
+    e.preventDefault();
+}, false);

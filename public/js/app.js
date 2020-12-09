@@ -4,8 +4,8 @@
  *
  */
 
+const addTaskForm = document.querySelector('.section-input__input-wrapper');
 const newTaskInput = document.getElementById('user_input');
-const btnAddTask = document.getElementById('add_task');
 
 const TODOList = document.querySelector('.section-tasks__todo-wrapper');
 const DONEList = document.querySelector('.section-tasks__finished-wrapper');
@@ -57,16 +57,11 @@ const deleteTask = event => {
  *
  */
 
-btnAddTask.addEventListener('click', addTask);
-
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);
 DONEList.addEventListener('click', deleteTask);
 
-btnAddTask.addEventListener(
-  'click',
-  function (e) {
-    e.preventDefault();
-  },
-  false
-);
+addTaskForm.addEventListener('submit', event => {
+  event.preventDefault();
+  addTask();
+});

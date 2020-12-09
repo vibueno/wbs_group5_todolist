@@ -4,7 +4,7 @@
 
 This project is a classic TODO list, created for a WBS Coding School assignment.
 
-In order to get help while changing this README file, you can use this [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/).
+In order to get help while changing this README file, you can use this [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) .
 
 ## Organisation
 
@@ -31,9 +31,9 @@ This project has been developed using vanilla JS only.
 
 ## Helpers
 
-- [Prettier](https://prettier.io/): the file .prettierrc.json in the root folder of the project makes sure everyone uses the same code formatter settings. You need to [install Prettier](https://prettier.io/docs/en/editors.html) for your code editor. Prettier can run 'on file save', so that you don't need to run it manually. Look for instructions on how to set it up in your code editor.
+- [Prettier](https://prettier.io/): the file _.prettierrc.json_ in the root folder of the project makes sure everyone uses the same code formatter settings. You need to [install Prettier](https://prettier.io/docs/en/editors.html) for your code editor. Prettier can run 'on file save', so that you don't need to run it manually. Look for instructions on how to set it up in your code editor.
 
-- [JSHint](https://jshint.com/): the file .jshintrc in the root folder of the project makes sure we all validate our JS using the same settings. You need to [install JSHint](https://jshint.com/install/) for your code editor.
+- [JSHint](https://jshint.com/): the file _.jshintrc_ in the root folder of the project makes sure we all validate our JS using the same settings. You need to [install JSHint](https://jshint.com/install/) for your code editor.
 
 ## Validators
 

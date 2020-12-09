@@ -1,12 +1,15 @@
 const button = document.getElementById("add_task");
 const container = document.getElementById("tasks");
 const input  = document.getElementById("user_input");
+let  newTask = ``;
 
 
- const AddTask=()=>{
-     let paragraph = document.createElement("p");
-    paragraph.innerText=input.value;
+ function AddTask() {
+    let paragraph = document.createElement("p");
+    paragraph.innerText = input.value;
     container.appendChild(paragraph);
+    
+    
 }
 
 

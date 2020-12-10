@@ -4,123 +4,122 @@
 
 - [Set-up](#set-up)
 - [Workflow](#workflow)
+- [Commands](#commands)
 - [Bibliography](#bibliography)
 
 ## Set-up
 
 ### Admin
 
-The initial Github and Git setup for the group project
-
-1. Create a repository on Github
-2. Clone the repository to your local System:
-
-```
-$ git clone [provided url on github]
-```
-
-3. Creating a developement branch locally:
+Follow these steps in order to set-up a repository:
+1. Create a repository on [Github](https://github.com/)
+2. Clone repository to your local machine:
 
 ```
-$ git checkout -b [dev_branch_name]
+$ git clone [url provided on Github]
 ```
 
-4. Creating initial files or other initial changes to the repo:
+3. Create a development branch locally:
+
+```
+$ git checkout -b dev
+```
+
+4. Create the initial folder structure and files (files and folders provided here are only an example):
 
 ```
 $ touch index.html
 $ touch style.css
 $ git add .
-$ git commit -m "first commit"
+$ git commit -m "Initial commit"
 ```
 
-5. Pushing the dev branch to remote (no pulling needed yet, since there is no code):
+5. Push changes to remote dev branch:
 
 ```
-$ git push origin [dev_branch_name]
+$ git push origin dev
 ```
 
-6. Add your Team members as contributors on Github:
+6. Add team members as contributors on Github:
    ![](./img/github_collaborators.png)
+
+7. Change default branch to dev
 
 ### Contributors
 
-The initial setup for project contributors
+If you are a project contributor, follow these steps for setting up your local git repository:
 
-1. Copy the project link on Github
+1. Copy repository URL on Github:
 
-   ![](./img/gitHub_link.png)
+   ![](./img/github_link.png)
 
-2. Clone the github repository to your local System:
+2. Clone repository to your local machine:
 
 ```
-$ git clone [copyed url on github]
+$ git clone [url provided on Github]
 ```
 
-3. Make sure to be in the initial branch
+3. Make sure to be in the main/master branch
 
-It should be the default branch (usually main/master).
-
-Either your git bash shows the branch you're on or you can call the git branch command and look for the branch with the star (\*):
-
+Either your git bash shows the branch you are working with or you can call
 ```
 $ git branch
 ```
-
-4. Creating a developement branch locally:
-
-```
-$ git checkout -b [dev_branch_name]
-```
+and look for the branch with the star (\*):
 
 ## Workflow
 
-Creating a new feature, implementing changes, fixing bugs.
+Follow these steps if you new to create a new feature, make some changes or fix a bug.
 
 1. Update your local development branch:
 
 ```
-$ git checkout [development_branch_name]
-$ git pull origin [development_branch_name]
+$ git checkout dev
+$ git pull origin dev
 ```
 
 2. Creating a working branch locally:
 
 ```
-$ git checkout -b [work_branch_name]
+$ git checkout -b [working_branch_name]
 ```
 
-3. Assure your are working on your working branch:
+3. Make sure you are working on your working branch:
 
 ```
 $ git branch
 ```
-
 You should see all existing branches and your working branch with a star \*
 
-4. Doing some work:
-
+4. Make the changes needed
+5. Once you are done, add your changes to the stagins area:
 ```
 $ git add.
+```
+5. Check that everything is OK:
+```
+$ git status
+```
+5. Commit your changes:
+```
 $ git commit -m "a good commit meassage"
 ```
 
-5. After finishing your work push it to Github:
+6. Create as many commits as needed until you have solved the initial issue that motivated the creation of the working branch.
+
+7. Once you are done, push your commits to Github:
 
 ```
 $ git push origin [work_branch_name]
 ```
 
-6. Create a Pull Request
+6. On Github, create a pull request (base: dev, compare: [work_branch_name])
 
-Make a new Pull Request on Github choosing the development branch as base and your working branch as the one to be compared with.
+7. Resolve possible merge conflicts:
 
-**Resolve conflicts!**
+8. Give a meaningful title and description and avoid including redundant information. Add pictures if needed.
 
-Give a meaningful title like "integrate feature xyz". Please no redundant information. Give it an good description as well. Add pictures as well.
-
-Add reviewers to your PR.
-
+9. Add reviewers to your PR.
 ![](./img/compare_and_pullRequest.png)
 ![](./img/open_PR.png)
 
@@ -157,42 +156,27 @@ $ git branch -d [working_branch_name]
 $ git fetch -p
 ```
 
-making remote branches visible to the console:
+### Merging dev branch with main/master branch
 
-```
-$ git branch -r
-```
-
-making local and remote branches visible to the console:
-
-```
-$ git branch -a
-```
-
-### Merging dev branch with main branch
-
-1. Create a pull request from the development branch to the main branch on github
+1. Create a pull request from the dev branch to the main/master branch on github
 2. Add Reviewers
 3. Reviewing Process
 4. Merge PR
 
 **Do not delete the development branch!**
 
-### Useful git commands
+## Commands
 
-- getting an exact Copy of an remote branch on your local system:
-
+- Check existing remote branches:
 ```
-$ git checkout --track origin/navbar
+$ git branch -r
 ```
 
-- getting an exact Copy of an remote branch on your local system:
-
+- Check existing local and remote branches:
 ```
-$ git checkout --track origin/navbar
-$ git checkout -b navbar origin/navbar
+$ git branch -a
 ```
 
 ## Bibliography
 
-- [Kunena-Forum on Github](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches).
+- [Create a new branch with git and manage branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)

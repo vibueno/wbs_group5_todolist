@@ -18,8 +18,17 @@ const newTaskInput = document.getElementById('user_input');
  */
 
 /**
+ * @description Removes value from input vhen called
+ */
+
+function removetaskvalue(){
+  newTaskInput.value=``;
+}
+
+/**
  * @description Adds a task to the task list.
  */
+
 function addTask() {
   if (newTaskInput.value) {
     let newTaskHTML = `
@@ -31,6 +40,8 @@ function addTask() {
         <button class="section-tasks__task-button delete-task"><i class="fas fa-trash-alt"></i></button>
       </div>`;
     TODOList.innerHTML += newTaskHTML;
+    newTaskInput.value=``;
+    
   } else {
     alert('Please add some task');
   }
@@ -104,6 +115,7 @@ const redoTask = event => {
  * Events
  *
  */
+btnAddTask.addEventListener("click", addTask,removetaskvalue);
 
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);

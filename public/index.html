@@ -24,48 +24,35 @@
   </head>
   <body>
     <main>
-      <h1 class="main-heading">TODO List</h1>
-      <section class="section-input">
-        <form class="section-input__input-wrapper">
-          <input
-            id="user_input"
-            class="section-input__input"
-            type="text"
-            minlength="3"
-            maxlength="45"
-            placeholder="What do you want to do ?"
-            required
-          />
-          <input
-            id="add_task"
-            class="section-input__button"
-            type="submit"
-            value="Add"
-          />
-        </form>
-      </section>
-      <section class="section-tasks">
-        <h2 class="section-tasks__heading">Tasks</h2>
-        <div class="section-tasks__todo-wrapper">
-          <div class="section-tasks__task">
-            <p class="section-tasks__task-desc">Test</p>
-            <button class="section-tasks__task-button finish-task">
-              <i class="fas fa-check"></i>
-            </button>
-            <button class="section-tasks__task-button delete-task">
-              <i class="fas fa-trash-alt"></i>
-            </button>
+      <h1>TODO List</h1>
+      <form class="new-task-form">
+        <input
+          id="new-task-desc"
+          class="new-task-desc"
+          type="text"
+          minlength="3"
+          maxlength="45"
+          placeholder="What do you want to do?"
+          required
+        />
+        <button class="new-task-submit" type="submit">
+          <i class="fas fa-plus"></i>
+        </button>
+      </form>
+      <section class="task-list">
+        <h2>Tasks</h2>
+        <div class="task-list-todo-wrapper">
+          <div class="task">
+            <p class="task-desc">Buy cookies!</p>
+            <button class="task-button finish-task fas fa-check"></button>
+            <button class="task-button delete-task fas fa-trash-alt"></button>
           </div>
         </div>
-        <div class="section-tasks__finished-wrapper">
-          <div class="section-tasks__task finished">
-            <p class="section-tasks__task-desc">Finished</p>
-            <button class="section-tasks__task-button undo-task">
-              <i class="fas fa-undo"></i>
-            </button>
-            <button class="section-tasks__task-button delete-task">
-              <i class="fas fa-trash-alt"></i>
-            </button>
+        <div class="task-list-finished-wrapper">
+          <div class="task finished">
+            <p class="task-desc">Walk the dog</p>
+            <button class="task-button undo-task fas fa-undo"></button>
+            <button class="task-button delete-task fas fa-trash-alt"></button>
           </div>
         </div>
       </section>

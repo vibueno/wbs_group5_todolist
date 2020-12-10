@@ -4,6 +4,9 @@
  *
  */
 
+const btnAddTask = document.getElementById('add_task');
+const TODOList = document.querySelector('.section-tasks__todo-wrapper');
+const finishedList = document.querySelector(".section-tasks__finished-wrapper");
 const addTaskForm = document.querySelector('.section-input__input-wrapper');
 const newTaskInput = document.getElementById('user_input');
 
@@ -51,6 +54,51 @@ const deleteTask = event => {
   }
 };
 
+/**
+ * @description move a task from the task list to finished list.
+ */
+const finishTask = event => {
+  //user has clicked on button but not on icon
+  if(event.target.classList.contains('done-task')) {
+    //store innerHtml of the task
+    const storeTask = event.target.parentNode.innerHTML;
+    event.target.parentNode.remove();
+    moveTask(".section-tasks__finished-wrapper", storeTask, "finished");
+  //user has clicked on icon
+  } else if (event.target.parentNode.classList.contains("done-task")) {
+    const storeTask = event.target.parentNode.parentNode.innerHTML;
+    event.target.parentNode.parentNode.remove();
+    moveTask(".section-tasks__finished-wrapper", storeTask, "finished");
+  }
+};
+
+/**
+ * @description change the icon according to the list where is the item
+ * 
+ */
+
+const changeIcon = (parentClass, classToDelete, classToAdd) => {
+  //get all the icons
+  const icons = document.querySelectorAll(`i`);
+  console.log(icons);
+  for(let i = 0; i < icons.length; i++) {
+    //check to which tasks icon need to be changed
+    if(icons[i].parentNode.parentNode.classList.contains(parentClass) && icons[i].classList.contains(classToDelete)) {
+      icons[i].classList.remove(classToDelete);
+      icons[i].classList.add(classToAdd);
+    }
+  }
+};
+
+/**
+ * @description select a list and add task
+ */
+const moveTask = (parentClass, stringToPass, classToAdd) => {
+  const parent = document.querySelector(parentClass);
+  parent.innerHTML += `<div class="section-tasks__task ${classToAdd}"> ${stringToPass} </div>`;
+  changeIcon("finished", "fa-check", "fa-undo");
+}
+
 /*
  *
  * Events
@@ -59,9 +107,13 @@ const deleteTask = event => {
 
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);
-DONEList.addEventListener('click', deleteTask);
+TODOList.addEventListener("click", finishTask);
 
-addTaskForm.addEventListener('submit', event => {
-  event.preventDefault();
-  addTask();
-});
+//Small function to remove default refreshing behaviour, when clicking on submit button
+document.getElementById('add_task').addEventListener(
+  'click',
+  function (e) {
+    e.preventDefault();
+  },
+  false
+);

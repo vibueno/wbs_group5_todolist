@@ -102,11 +102,11 @@ const moveTask = (parentClass, stringToPass, classToAdd) => {
  * Events
  *
  */
-
 btnAddTask.addEventListener("click", addTask);
 
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);
+DONEList.addEventListener('click', deleteTask);
 TODOList.addEventListener("click", finishTask);
 
 //Small function to remove default refreshing behaviour, when clicking on submit button

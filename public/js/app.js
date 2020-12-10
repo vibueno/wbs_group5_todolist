@@ -18,12 +18,16 @@ const newTaskInput = document.getElementById('user_input');
  */
 
 /**
- * @description Adds a task to the task list.
+ * @description Removes value from input vhen called
  */
+
 function removetaskvalue(){
   newTaskInput.value=``;
-  
 }
+
+/**
+ * @description Adds a task to the task list.
+ */
 
 function addTask() {
   if (newTaskInput.value) {
@@ -32,7 +36,7 @@ function addTask() {
         <p class="section-tasks__task-desc">
         ${newTaskInput.value}
         </p>
-        <button class="section-tasks__task-button done-task"><i class="fas fa-check"></i></button>
+        <button class="section-tasks__task-button do-task"><i class="fas fa-check"></i></button>
         <button class="section-tasks__task-button delete-task"><i class="fas fa-trash-alt"></i></button>
       </div>`;
     TODOList.innerHTML += newTaskHTML;
@@ -41,7 +45,6 @@ function addTask() {
   } else {
     alert('Please add some task');
   }
-  
 }
 
 /**
@@ -65,45 +68,47 @@ const deleteTask = event => {
  */
 const finishTask = event => {
   //user has clicked on button but not on icon
-  if(event.target.classList.contains('done-task')) {
-    //store innerHtml of the task
-    const storeTask = event.target.parentNode.innerHTML;
+  if(event.target.classList.contains('do-task')) {
+    event.target.querySelector('i').classList.add('fa-undo');
+    event.target.querySelector('i').classList.remove('fa-check');
+    event.target.parentNode.classList.remove("to-finish");
+    event.target.parentNode.classList.add("finished");
     event.target.parentNode.remove();
-    moveTask(".section-tasks__finished-wrapper", storeTask, "finished");
+    const newParent = document.querySelector(".section-tasks__finished-wrapper");
+    newParent.append(event.target.parentNode);
   //user has clicked on icon
-  } else if (event.target.parentNode.classList.contains("done-task")) {
-    const storeTask = event.target.parentNode.parentNode.innerHTML;
+  } else if (event.target.parentNode.classList.contains("do-task")) {
+    event.target.parentNode.querySelector('i').classList.add('fa-undo');
+    event.target.parentNode.querySelector('i').classList.remove('fa-check');
+    event.target.parentNode.parentNode.classList.remove("to-finish");
+    event.target.parentNode.parentNode.classList.add("finished");
     event.target.parentNode.parentNode.remove();
-    moveTask(".section-tasks__finished-wrapper", storeTask, "finished");
+    const newParent = document.querySelector(".section-tasks__finished-wrapper");
+    newParent.append(event.target.parentNode.parentNode);
   }
 };
 
-/**
- * @description change the icon according to the list where is the item
- * 
- */
-
-const changeIcon = (parentClass, classToDelete, classToAdd) => {
-  //get all the icons
-  const icons = document.querySelectorAll(`i`);
-  console.log(icons);
-  for(let i = 0; i < icons.length; i++) {
-    //check to which tasks icon need to be changed
-    if(icons[i].parentNode.parentNode.classList.contains(parentClass) && icons[i].classList.contains(classToDelete)) {
-      icons[i].classList.remove(classToDelete);
-      icons[i].classList.add(classToAdd);
+const redoTask = event => {
+    //user has clicked on button but not on icon
+    if(event.target.classList.contains('undo')) {
+      event.target.querySelector('i').classList.add('fa-check');
+      event.target.querySelector('i').classList.remove('fa-undo');
+      event.target.parentNode.classList.remove("finished");
+      event.target.parentNode.classList.add("to-finished");
+      event.target.parentNode.remove();
+      const newParent = document.querySelector(".section-tasks__todo-wrapper");
+      newParent.append(event.target.parentNode);
+    //user has clicked on icon
+    } else if (event.target.parentNode.classList.contains("undo")) {
+      event.target.parentNode.querySelector('i').classList.add('fa-check');
+      event.target.parentNode.querySelector('i').classList.remove('fa-undo');
+      event.target.parentNode.parentNode.classList.remove("finished");
+      event.target.parentNode.parentNode.classList.add("to-finish");
+      event.target.parentNode.parentNode.remove();
+      const newParent = document.querySelector(".section-tasks__todo-wrapper");
+      newParent.append(event.target.parentNode.parentNode);
     }
-  }
 };
-
-/**
- * @description select a list and add task
- */
-const moveTask = (parentClass, stringToPass, classToAdd) => {
-  const parent = document.querySelector(parentClass);
-  parent.innerHTML += `<div class="section-tasks__task ${classToAdd}"> ${stringToPass} </div>`;
-  changeIcon("finished", "fa-check", "fa-undo");
-}
 
 /*
  *
@@ -114,14 +119,12 @@ btnAddTask.addEventListener("click", addTask,removetaskvalue);
 
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);
+TODOList.addEventListener('click', finishTask);
 DONEList.addEventListener('click', deleteTask);
-TODOList.addEventListener("click", finishTask);
+DONEList.addEventListener('click', redoTask);
 
 //Small function to remove default refreshing behaviour, when clicking on submit button
-document.getElementById('add_task').addEventListener(
-  'click',
-  function (e) {
-    e.preventDefault();
-  },
-  false
-);
+addTaskForm.addEventListener('submit', event => {
+  event.preventDefault();
+  addTask();
+});

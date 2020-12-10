@@ -12,7 +12,7 @@
 
 This project is a classic TODO list, created for a WBS Coding School assignment.
 
-In order to get help while changing this README file, you can use this [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) .
+In order to get help while changing this README file, you can use this [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/).
 
 ## Organisation
 

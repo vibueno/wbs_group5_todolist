@@ -7,7 +7,11 @@
 const btnAddTask = document.getElementById('add_task');
 const TODOList = document.querySelector('.section-tasks__todo-wrapper');
 const finishedList = document.querySelector(".section-tasks__finished-wrapper");
+const addTaskForm = document.querySelector('.section-input__input-wrapper');
 const newTaskInput = document.getElementById('user_input');
+
+const TODOList = document.querySelector('.section-tasks__todo-wrapper');
+const DONEList = document.querySelector('.section-tasks__finished-wrapper');
 
 /*
  *
@@ -36,6 +40,9 @@ function addTask() {
 
 /**
  * @description Deletes a task from the task list.
+ *
+ * @param {Object} event contains information about the event
+ * whose listener called this function
  */
 const deleteTask = event => {
   //user has clicked on button but not on icon
@@ -97,8 +104,6 @@ const moveTask = (parentClass, stringToPass, classToAdd) => {
  * Events
  *
  */
-
-btnAddTask.addEventListener('click', addTask);
 
 //Using event delegation
 TODOList.addEventListener('click', deleteTask);

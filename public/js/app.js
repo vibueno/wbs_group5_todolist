@@ -5,25 +5,26 @@
  */
 
 //Task list
-const DoneListSelector = '.section-tasks__finished-wrapper';
-const TODOListSelector = '.section-tasks__todo-wrapper';
+const doneListSelector = '.task-list-finished-wrapper';
+const TODOListSelector = '.task-list-todo-wrapper';
 const TODOList = document.querySelector(TODOListSelector);
-const DoneList = document.querySelector(DoneListSelector);
+const doneList = document.querySelector(doneListSelector);
 
-//Tasks
-const finishTaskClass = 'finish-task';
-const deleteTaskClass = 'delete-task';
-const undoTaskClass = 'undo-task';
+//Task buttons CSS classes
+const btnFinishTaskClass = 'finish-task';
+const btnUndoTaskClass = 'undo-task';
+const btnDeleteTaskClass = 'delete-task';
 
-//Font awesome
-const finishTaskClassFA = 'fa-check';
-const undoTaskClassFA = 'fa-undo';
-const deleteTaskClassFA = 'fa-trash-alt';
+const finishedTaskClass = 'finished';
+
+//Font awesome CSS classes
+const btnFinishTaskClassFA = 'fa-check';
+const btnUndoTaskClassFA = 'fa-undo';
+const btnDeleteTaskClassFA = 'fa-trash-alt';
 
 //New task form
-
-const addTaskForm = document.querySelector('.section-input__input-wrapper');
-const newTaskInput = document.getElementById('user_input');
+const newTaskForm = document.querySelector('.new-task-form');
+const newTaskDesc = document.getElementById('new-task-desc');
 
 /*
  *
@@ -35,19 +36,20 @@ const newTaskInput = document.getElementById('user_input');
  * @description Adds a task to the task list.
  */
 
-function addTask() {
-  if (newTaskInput.value) {
+function addTask(desc) {
+  if (desc) {
     let newTaskHTML = `
-      <div class="section-tasks__task">
-        <p class="section-tasks__task-desc">
-        ${newTaskInput.value}
+      <div class="task">
+        <p class="task-desc">
+        ${newTaskDesc.value}
         </p>
-        <button class="section-tasks__task-button ${finishTaskClass}"><i class="fas ${finishTaskClassFA}"></i></button>
-        <button class="section-tasks__task-button ${deleteTaskClass}"><i class="fas ${deleteTaskClassFA}"></i></button>
+        <button class="task-button ${btnFinishTaskClass} fas ${btnFinishTaskClassFA}"></button>
+        <button class="task-button ${btnDeleteTaskClass} fas ${btnDeleteTaskClassFA}"></button>
       </div>`;
     TODOList.innerHTML += newTaskHTML;
+    //TODO: throw exception if desc has not been passed
   } else {
-    alert('Please add some task');
+    alert('Please add a description before creating a task.');
   }
 }
 
@@ -61,30 +63,16 @@ const TODOListClickHandler = event => {
   let task;
   let button;
 
-  /*Button delete*/
-
-  //user has clicked on button but not on icon
-  if (event.target.classList.contains(deleteTaskClass)) {
+  /*Button delete task*/
+  if (event.target.classList.contains(btnDeleteTaskClass)) {
     task = event.target.parentNode;
-    deleteTask(task);
-
-    //user has clicked on icon
-  } else if (event.target.parentNode.classList.contains(deleteTaskClass)) {
-    task = event.target.parentNode.parentNode;
     deleteTask(task);
   }
 
-  /*Button mark as done*/
-
-  //user has clicked on button but not on icon
-  if (event.target.classList.contains(finishTaskClass)) {
+  /*Button mark task as done*/
+  if (event.target.classList.contains(btnFinishTaskClass)) {
     task = event.target.parentNode;
     button = event.target;
-    finishTask(task, button);
-    //user has clicked on icon
-  } else if (event.target.parentNode.classList.contains(finishTaskClass)) {
-    task = event.target.parentNode.parentNode;
-    button = event.target.parentNode;
     finishTask(task, button);
   }
 };
@@ -100,29 +88,15 @@ const doneListClickHandler = event => {
   let button;
 
   /*Button undo task*/
-
-  //user has clicked on button but not on icon
-  if (event.target.classList.contains(undoTaskClass)) {
+  if (event.target.classList.contains(btnUndoTaskClass)) {
     task = event.target.parentNode;
     button = event.target;
     undoTask(task, button);
-    //user has clicked on icon
-  } else if (event.target.parentNode.classList.contains(undoTaskClass)) {
-    task = event.target.parentNode.parentNode;
-    button = event.target.parentNode;
-    undoTask(task, button);
   }
 
-  /*Button delete*/
-
-  //user has clicked on button but not on icon
-  if (event.target.classList.contains(deleteTaskClass)) {
+  /*Button delete task*/
+  if (event.target.classList.contains(btnDeleteTaskClass)) {
     task = event.target.parentNode;
-    deleteTask(task);
-
-    //user has clicked on icon
-  } else if (event.target.parentNode.classList.contains(deleteTaskClass)) {
-    task = event.target.parentNode.parentNode;
     deleteTask(task);
   }
 };
@@ -139,15 +113,15 @@ const deleteTask = task => {
  */
 const finishTask = (task, button) => {
   //Changing button icons
-  button.querySelector('i').classList.add(undoTaskClassFA);
-  button.querySelector('i').classList.remove(finishTaskClassFA);
+  button.classList.add(btnUndoTaskClassFA);
+  button.classList.remove(btnFinishTaskClassFA);
 
-  //Changing button classes
-  button.classList.add(undoTaskClass);
-  button.classList.remove(finishTaskClass);
+  //Changing button task classes
+  button.classList.add(btnUndoTaskClass);
+  button.classList.remove(btnFinishTaskClass);
 
-  task.classList.add('finished');
-  DoneList.append(task);
+  task.classList.add(finishedTaskClass);
+  doneList.append(task);
 };
 
 /**
@@ -155,14 +129,14 @@ const finishTask = (task, button) => {
  */
 const undoTask = (task, button) => {
   //Changing button icons
-  button.querySelector('i').classList.add(finishTaskClassFA);
-  button.querySelector('i').classList.remove(undoTaskClassFA);
+  button.classList.add(btnFinishTaskClassFA);
+  button.classList.remove(btnUndoTaskClassFA);
 
-  //Changing button classes
-  button.classList.add(finishTaskClass);
-  button.classList.remove(undoTaskClass);
+  //Changing button task classes
+  button.classList.add(btnFinishTaskClass);
+  button.classList.remove(btnUndoTaskClass);
 
-  task.classList.remove('finished');
+  task.classList.remove(finishedTaskClass);
   TODOList.append(task);
 };
 
@@ -172,17 +146,17 @@ const undoTask = (task, button) => {
  *
  */
 
+newTaskForm.addEventListener('submit', event => {
+  //preventing page refresh
+  event.preventDefault();
+  addTask(newTaskDesc.value);
+  newTaskForm.reset();
+});
+
 //Using event delegation for TODO list
 TODOList.addEventListener('click', TODOListClickHandler);
 TODOList.addEventListener('click', TODOListClickHandler);
 
 //Using event delegation for 'done' list
-DoneList.addEventListener('click', doneListClickHandler);
-DoneList.addEventListener('click', doneListClickHandler);
-
-addTaskForm.addEventListener('submit', event => {
-  //preventing page refresh
-  event.preventDefault();
-  addTask();
-  addTaskForm.reset();
-});
+doneList.addEventListener('click', doneListClickHandler);
+doneList.addEventListener('click', doneListClickHandler);

@@ -33,8 +33,7 @@ This project has been developed using vanilla JS only.
 ### Guidelines
 
 - [CSS Rule order](https://9elements.com/css-rule-order)
-
-- [Git Workflow](https://widukin.github.io/NotAnotherCookBook/asides/github_workflow/gitworkflow.html)
+- [Git set-up and workflow](./doc/git.md)
 - Use [JS Doc](https://jsdoc.app/) to document JS
 
 ### Helpers

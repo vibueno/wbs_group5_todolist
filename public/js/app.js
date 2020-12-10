@@ -32,6 +32,7 @@ const newTaskDesc = document.getElementById('new-task-desc');
 
 /**
  * @description Adds a task to the task list.
+ * @param {Object} desc task description.
  */
 
 function addTask(desc) {
@@ -52,9 +53,59 @@ function addTask(desc) {
 }
 
 /**
- * @description Handles the click event on the TODO List
+ * @description Deletes a task from its task list.
+ * @param {Object} task node of the task to be deleteed.
+ */
+const deleteTask = task => {
+  task.remove();
+};
+
+/**
+ * @description Moves a task from TODO list to done list.
+ * @param {Object} task   node of the task to be marked as done.
+ * @param {Object} button node of the button that has been clicked.
+ */
+const finishTask = (task, button) => {
+  //Changing button icons
+  button.classList.add(btnUndoTaskClassFA);
+  button.classList.remove(btnFinishTaskClassFA);
+
+  //Changing button task classes
+  button.classList.add(btnUndoTaskClass);
+  button.classList.remove(btnFinishTaskClass);
+
+  task.classList.add(finishedTaskClass);
+  doneList.append(task);
+};
+
+/**
+ * @description Move a task from 'done' list to TODO list.
+ * @param {Object} task   node of the task to be undone.
+ * @param {Object} button node of the button that has been clicked.
+ */
+const undoTask = (task, button) => {
+  //Changing button icons
+  button.classList.add(btnFinishTaskClassFA);
+  button.classList.remove(btnUndoTaskClassFA);
+
+  //Changing button task classes
+  button.classList.add(btnFinishTaskClass);
+  button.classList.remove(btnUndoTaskClass);
+
+  task.classList.remove(finishedTaskClass);
+  TODOList.append(task);
+};
+
+/*
+ *
+ * Event handlers
+ *
+ */
+
+/**
+ * @description Handles the click event on the TODO List.
  * @param {Object} event contains information about the event
- * whose listener called this handler
+ * whose listener called this handler.
  */
 
 const TODOListClickHandler = event => {
@@ -78,7 +129,7 @@ const TODOListClickHandler = event => {
 /**
  * @description Handles the click event on the done List
  * @param {Object} event contains information about the event
- * whose listener called this handler
+ * whose listener called this handler.
  */
 
 const doneListClickHandler = event => {
@@ -99,48 +150,9 @@ const doneListClickHandler = event => {
   }
 };
 
-/**
- * @description Deletes a task from its task list.
- */
-const deleteTask = task => {
-  task.remove();
-};
-
-/**
- * @description Moves a task from TODO list to done list.
- */
-const finishTask = (task, button) => {
-  //Changing button icons
-  button.classList.add(btnUndoTaskClassFA);
-  button.classList.remove(btnFinishTaskClassFA);
-
-  //Changing button task classes
-  button.classList.add(btnUndoTaskClass);
-  button.classList.remove(btnFinishTaskClass);
-
-  task.classList.add(finishedTaskClass);
-  doneList.append(task);
-};
-
-/**
- * @description Move a task from 'done' list to TODO list.
- */
-const undoTask = (task, button) => {
-  //Changing button icons
-  button.classList.add(btnFinishTaskClassFA);
-  button.classList.remove(btnUndoTaskClassFA);
-
-  //Changing button task classes
-  button.classList.add(btnFinishTaskClass);
-  button.classList.remove(btnUndoTaskClass);
-
-  task.classList.remove(finishedTaskClass);
-  TODOList.append(task);
-};
-
 /*
  *
- * Events
+ * Event listeners
  *
  */
 

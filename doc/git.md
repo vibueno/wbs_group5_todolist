@@ -41,7 +41,7 @@ $ git push origin [dev_branch_name]
 ```
 
 6. Add your Team members as contributors on Github:
-   ![](./github_collaborators.png)
+   ![](./img/github_collaborators.png)
 
 ### Contributors
 
@@ -49,7 +49,7 @@ The initial setup for project contributors
 
 1. Copy the project link on Github
 
-   ![](./gitHub_link.png)
+   ![](./img/gitHub_link.png)
 
 2. Clone the github repository to your local System:
 
@@ -121,8 +121,8 @@ Give a meaningful title like "integrate feature xyz". Please no redundant inform
 
 Add reviewers to your PR.
 
-![](./compare_and_pullRequest.png)
-![](./open_PR.png)
+![](./img/compare_and_pullRequest.png)
+![](./img/open_PR.png)
 
 ### Handling pull requests
 
@@ -132,17 +132,17 @@ Merging should be a team approach.
 
 The assigned Reviewers do their review comments and approve or request changes on the PR.
 
-![](./review_PR.png)
+![](./img/review_PR.png)
 
 2. Implement the required changes
 
 Follow the [daily workflow steps](#daily_workflow).
 
 3. Merge the Pull Request:
-   ![](./merge_PR.png)
+   ![](./img/merge_PR.png)
 
 4. Delete your remote working branch
-   ![](./delete_remote_working_branch.png)
+   ![](./img/delete_remote_working_branch.png)
 
 5. Delete your local working branch:
 

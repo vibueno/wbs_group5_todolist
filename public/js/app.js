@@ -4,11 +4,9 @@
  *
  */
 
-//Task list
-const doneListSelector = '.task-list-finished-wrapper';
-const TODOListSelector = '.task-list-todo-wrapper';
-const TODOList = document.querySelector(TODOListSelector);
-const doneList = document.querySelector(doneListSelector);
+//Task lists
+const TODOList = document.querySelector('.task-list-todo-wrapper');
+const doneList = document.querySelector('.task-list-finished-wrapper');
 
 //Task buttons CSS classes
 const btnFinishTaskClass = 'finish-task';

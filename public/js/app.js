@@ -35,7 +35,7 @@ const newTaskDesc = document.getElementById('new-task-desc');
  * @param {Object} desc task description.
  */
 
-function addTask(desc) {
+const addTask = desc => {
   if (desc) {
     let newTaskHTML = `
       <div class="task">
@@ -50,7 +50,7 @@ function addTask(desc) {
   } else {
     alert('Please add a description before creating a task.');
   }
-}
+};
 
 /**
  * @description Deletes a task from its task list.
@@ -61,7 +61,7 @@ const deleteTask = task => {
 };
 
 /**
- * @description Moves a task from TODO list to done list.
+ * @description Moves a task from TODO list to 'done' list.
  * @param {Object} task   node of the task to be marked as done.
  * @param {Object} button node of the button that has been clicked.
  */
@@ -79,7 +79,7 @@ const finishTask = (task, button) => {
 };
 
 /**
- * @description Move a task from 'done' list to TODO list.
+ * @description Moves a task from 'done' list to TODO list.
  * @param {Object} task   node of the task to be undone.
  * @param {Object} button node of the button that has been clicked.
  */
@@ -101,6 +101,18 @@ const undoTask = (task, button) => {
  * Event handlers
  *
  */
+
+/**
+ * @description Handles the submit event on new task form.
+ * @param {Object} event contains information about the event
+ * whose listener called this handler.
+ */
+const newTaskFormSubmitHandler = event => {
+  //preventing page refresh
+  event.preventDefault();
+  addTask(newTaskDesc.value);
+  newTaskForm.reset();
+};
 
 /**
  * @description Handles the click event on the TODO List.
@@ -150,17 +162,10 @@ const doneListClickHandler = event => {
  *
  */
 
-newTaskForm.addEventListener('submit', event => {
-  //preventing page refresh
-  event.preventDefault();
-  addTask(newTaskDesc.value);
-  newTaskForm.reset();
-});
+newTaskForm.addEventListener('submit', newTaskFormSubmitHandler);
 
 //Using event delegation for TODO list
 TODOList.addEventListener('click', TODOListClickHandler);
-TODOList.addEventListener('click', TODOListClickHandler);
 
 //Using event delegation for 'done' list
-doneList.addEventListener('click', doneListClickHandler);
 doneList.addEventListener('click', doneListClickHandler);

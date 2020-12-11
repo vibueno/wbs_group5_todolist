@@ -109,19 +109,16 @@ const undoTask = (task, button) => {
  */
 
 const TODOListClickHandler = event => {
-  let task;
-  let button;
+  let task = event.target.parentNode;
+  let button = event.target;
 
   /*Button delete task*/
   if (event.target.classList.contains(btnDeleteTaskClass)) {
-    task = event.target.parentNode;
     deleteTask(task);
   }
 
   /*Button mark task as done*/
   if (event.target.classList.contains(btnFinishTaskClass)) {
-    task = event.target.parentNode;
-    button = event.target;
     finishTask(task, button);
   }
 };
@@ -133,19 +130,16 @@ const TODOListClickHandler = event => {
  */
 
 const doneListClickHandler = event => {
-  let task;
-  let button;
+  let task = event.target.parentNode;
+  let button = event.target;
 
   /*Button undo task*/
   if (event.target.classList.contains(btnUndoTaskClass)) {
-    task = event.target.parentNode;
-    button = event.target;
     undoTask(task, button);
   }
 
   /*Button delete task*/
   if (event.target.classList.contains(btnDeleteTaskClass)) {
-    task = event.target.parentNode;
     deleteTask(task);
   }
 };

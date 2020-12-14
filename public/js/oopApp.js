@@ -10,7 +10,7 @@ const todoList = document.querySelector('.task-list-todo-wrapper');
 const doneList = document.querySelector('.task-list-finished-wrapper');
 
 //Task buttons CSS classes
-const submitTask = document.querySelector(".new-task-submit");
+const submitTask = document.querySelector('.new-task-submit');
 
 const btnFinishTaskClass = 'finish-task';
 const btnUndoTaskClass = 'undo-task';
@@ -29,40 +29,29 @@ const btnDeleteTaskClassFA = 'fa-trash-alt';
  *
  */
 
-
 class Task {
-    constructor(taskDesc) {
-        this.taskDesc = taskDesc;
-        this.taskNotFinished = true;
-        this.taskClass = btnFinishTaskClass;
-        this.taskIcon = btnFinishTaskClassFA;
-        this.taskFrame = `<div class="task">
-        <p class="task-desc">
-        ${this.taskDesc}
-        </p>
-        <button class="task-button ${this.taskIcon} fas ${this.taskIcon}"></button>
-        <button class="task-button ${btnDeleteTaskClass} fas ${btnDeleteTaskClassFA}"></button>
-      </div>`;
-    }
+  constructor(description) {
+    this.description = description;
+    this.notFinished = true;
+    this.btnClass = btnFinishTaskClass;
+    this.btnIcon = btnFinishTaskClassFA;
+  }
 
-   toggleState() {
-       //if the task in time of the click is not finished (true), toggle the icons 
-       //and add class for finished state else toggle back
-        if(this.taskNotFinished === true) {
-            this.taskNotFinished = false;
-            this.taskClass = btnUndoTaskClass;
-            this.taskIcon = btnUndoTaskClassFA;
-        } else {
-            this.taskNotFinished = true;
-            this.taskClass = btnFinishTaskClass;
-            this.taskIcon = btnFinishTaskClassFA;
-        }
-    }
+  markAsDone() {
+    this.taskNotFinished = false;
+    this.btnClass = btnUndoTaskClass;
+    this.btnIcon = btnUndoTaskClassFA;
+  }
+
+  undoTask() {
+    this.taskNotFinished = true;
+    this.btnClass = btnFinishTaskClass;
+    this.btnIcon = btnFinishTaskClassFA;
+  }
 }
-
 
 //prevent default reset on submit
 
-submitTask.addEventListener("click", (event) => {
-    event.preventDefault();
+submitTask.addEventListener('click', event => {
+  event.preventDefault();
 });

@@ -110,19 +110,20 @@ class Task {
 
 class Tasklist{
   constructor(tasks){
-    this.tasks=[tasks];
-    this.idCounter=0;
+    this._tasks=[tasks];
+    this._idCounter=0;
   }
   addTask(Task){
-this.tasks.push(Task);
-this.idCounter++;
+this._tasks.push(Task);
+this._idCounter++;
   }
 
 
 
   removeTask(id){
-this.tasks.remove(id);
-this.idCounter--;
+   let index= this._tasks.indexOf(id);
+this._tasks.splice(id,index);
+this._idCounter--;
   }
 }
 

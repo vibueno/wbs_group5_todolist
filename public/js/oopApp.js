@@ -23,6 +23,10 @@ const btnFinishTaskClassFA = 'fa-check';
 const btnUndoTaskClassFA = 'fa-undo';
 const btnDeleteTaskClassFA = 'fa-trash-alt';
 
+//New task form
+const newTaskForm = document.querySelector('.new-task-form');
+const newTaskDesc = document.getElementById('new-task-desc');
+
 /*
  *
  * Classes
@@ -124,6 +128,8 @@ class Task {
 
 //prevent default reset on submit
 
-submitTask.addEventListener('click', event => {
+const newTaskFormSubmitHandler = event => {
   event.preventDefault();
-});
+}
+
+newTaskForm.addEventListener("submit", newTaskFormSubmitHandler);

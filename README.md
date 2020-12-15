@@ -7,6 +7,7 @@
 - [Design](#design)
 - [Live](#live)
 - [Programming](#programming)
+- [Credits](#credits)
 
 ## Description
 
@@ -30,7 +31,7 @@ For a live version of _TODO_, visit [GitHub Pages](https://memocan40.github.io/T
 
 This project has been developed using vanilla JS only.
 
-## Architecture
+### Architecture
 
 The application has two classes:
 
@@ -78,3 +79,7 @@ These validators, even if not 100% up-to-date with the newest standards, still h
 
 - [HTML (W3C)](https://validator.w3.org)
 - [CSS (W3C)](https://jigsaw.w3.org/css-validator)
+
+## Credits
+
+- Favicon by [flaticon.com](https://www.flaticon.com/free-icon/checklist-checked-box_46715)

@@ -31,20 +31,17 @@ const btnDeleteTaskClassFA = 'fa-trash-alt';
 
 class Task {
   constructor(description) {
-    this.description = description;
-    this.notFinished = true;
+    this._id = id;
+    this._description = description;
+    this._finished = false;
   }
 
   markAsDone() {
-    this.taskNotFinished = false;
-    this.btnClass = btnUndoTaskClass;
-    this.btnIcon = btnUndoTaskClassFA;
+    this.finished = true;
   }
 
   undoTask() {
-    this.taskNotFinished = true;
-    this.btnClass = btnFinishTaskClass;
-    this.btnIcon = btnFinishTaskClassFA;
+    this.finished = false;
   }
 }
 

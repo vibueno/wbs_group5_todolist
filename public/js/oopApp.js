@@ -33,8 +33,6 @@ class Task {
   constructor(description) {
     this.description = description;
     this.notFinished = true;
-    this.btnClass = btnFinishTaskClass;
-    this.btnIcon = btnFinishTaskClassFA;
   }
 
   markAsDone() {
@@ -49,6 +47,83 @@ class Task {
     this.btnIcon = btnFinishTaskClassFA;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//MEMO class taskList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //prevent default reset on submit
 

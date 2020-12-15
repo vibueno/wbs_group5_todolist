@@ -108,7 +108,23 @@ class Task {
 
 
 
+class Tasklist{
+  constructor(tasks,idCounter){
+    this.tasks=[tasks];
+    this.idCounter=0;
+  }
+  addTask(Task){
+this.tasks.push(Task);
+this.idCounter++;
+  }
 
+
+
+  removeTask(id){
+this.tasks.remove(id);
+this.idCounter--;
+  }
+}
 
 
 

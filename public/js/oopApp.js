@@ -109,7 +109,7 @@ class Task {
 
 
 class Tasklist{
-  constructor(tasks,idCounter){
+  constructor(tasks){
     this.tasks=[tasks];
     this.idCounter=0;
   }

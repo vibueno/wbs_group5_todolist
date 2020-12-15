@@ -30,6 +30,36 @@ For a live version of _TODO_, visit [GitHub Pages](https://memocan40.github.io/T
 
 This project has been developed using vanilla JS only.
 
+## Architecture
+
+The application has two classes:
+
+**Task**
+
+_Properties_
+
+- \_id: Number
+- \_description: String
+- \_finished: Boolean
+
+_Methods_
+
+- constructor (description)
+- markAsDone ()
+- undoTask ()
+
+**Tasklist**
+
+_Properties_
+
+- \_tasks: Array of Task
+- \_idCounter: Number, default 0
+
+_Methods_
+
+- addTask (Task)
+- removeTask (id)
+
 ### Guidelines
 
 - [CSS Rule order](https://9elements.com/css-rule-order)

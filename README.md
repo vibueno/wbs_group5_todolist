@@ -54,7 +54,7 @@ _Methods_
 _Properties_
 
 - \_tasks: Array of Task
-- \_idCounter: Number, default 0
+- \_nextId: Number, default 0
 
 _Methods_
 

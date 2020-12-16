@@ -27,7 +27,6 @@ const btnDeleteTaskClassFA = 'fa-trash-alt';
 const newTaskForm = document.querySelector('.new-task-form');
 const newTaskDesc = document.getElementById('new-task-desc');
 
-
 /*
  *
  * Classes
@@ -50,19 +49,19 @@ class Task {
   }
 }
 
-class Tasklist{
-  constructor(tasks){
-    this._tasks=[tasks];
-    this._idCounter=0;
+class Tasklist {
+  constructor() {
+    this._tasks = [];
+    this._idCounter = 0;
   }
-  addTask(Task){
+  addTask(Task) {
     this._tasks.push(Task);
     this._idCounter++;
   }
 
-  removeTask(id){
-   let index= this._tasks.indexOf(id);
-    this._tasks.splice(id,index);
+  removeTask(id) {
+    let index = this._tasks.indexOf(id);
+    this._tasks.splice(id, index);
   }
 }
 
@@ -74,23 +73,17 @@ class Tasklist{
 
 const newToDoList = new Tasklist();
 
-
-
-
 /*
  *
  * Functions
  *
  */
 
-
- //move the task to Done section of the list
+//move the task to Done section of the list
 const finishTask = (task, button) => {
-  const targetID = task.id;
+  const targetID = parseInt(task.id);
   const taskArray = newToDoList._tasks;
-  console.log(targetID);
-  console.log(newToDoList);
-  
+
   //Changing button icons
   button.classList.add(btnUndoTaskClassFA);
   button.classList.remove(btnFinishTaskClassFA);
@@ -102,46 +95,45 @@ const finishTask = (task, button) => {
   task.classList.add(finishedTaskClass);
   doneList.append(task);
 
-  for (item in taskArray) {
-    if(Task._id === targetID) {
-      Task.markAsDone();
+  for (let i = 0; i < taskArray.length; i++) {
+    console.log(taskArray)
+    if(taskArray[i]._id === targetID) {
+      taskArray[i].markAsDone();
+      console.log(taskArray[i]);
     }
   }
 };
 
-
 //move task back to unfinished section of the list
 const undoTask = (task, button) => {
-    const targetID = task.id;
-    const taskArray = newToDoList._tasks;
-    console.log(targetID);
-  
-    //Changing button icons
-    button.classList.add(btnFinishTaskClassFA);
-    button.classList.remove(btnUndoTaskClassFA);
-  
-    //Changing button task classes
-    button.classList.add(btnFinishTaskClass);
-    button.classList.remove(btnUndoTaskClass);
-  
-    task.classList.remove(finishedTaskClass);
-    todoList.append(task);
+  const targetID = parseInt(task.id);
+  const taskArray = newToDoList._tasks;
 
-    for (item in taskArray) {
-      if(item._id === targetID) {
-        Task.undoTask();
-      }
+  //Changing button icons
+  button.classList.add(btnFinishTaskClassFA);
+  button.classList.remove(btnUndoTaskClassFA);
+
+  //Changing button task classes
+  button.classList.add(btnFinishTaskClass);
+  button.classList.remove(btnUndoTaskClass);
+
+  task.classList.remove(finishedTaskClass);
+  todoList.append(task);
+
+  for (let i = 0; i < taskArray.length; i++) {
+    if(taskArray[i]._id === targetID) {
+      taskArray[i].undoTask();
+      console.log(taskArray[i]);
     }
-    console.log(newToDoList);
-}
+  }
+
+};
 
 const deleteTask = task => {
   task.remove();
   newToDoList.removeTask(task);
-}
-
-
-
+  console.log(newToDoList);
+};
 
 /*
  *
@@ -149,8 +141,7 @@ const deleteTask = task => {
  *
  */
 
-
-newTaskForm.addEventListener("submit", (event) => {
+newTaskForm.addEventListener('submit', event => {
   const id = newToDoList._idCounter;
   const inputValue = newTaskDesc.value;
   const newTask = new Task(inputValue, id);
@@ -161,15 +152,14 @@ newTaskForm.addEventListener("submit", (event) => {
                     </div>`;
   newToDoList.addTask(newTask);
   todoList.innerHTML += taskHTML;
+  event.target.reset();
   //prevent default reset on submit
   event.preventDefault();
 });
 
-
-taskList.addEventListener("click", (event) => {
+taskList.addEventListener('click', event => {
   let task = event.target.parentNode;
   let button = event.target;
-
 
   //Button 'finish task'
   if (button.classList.contains(btnFinishTaskClass)) finishTask(task, button);
@@ -177,5 +167,4 @@ taskList.addEventListener("click", (event) => {
   else if (button.classList.contains(btnDeleteTaskClass)) deleteTask(task);
   //Button 'undo task'
   else if (button.classList.contains(btnUndoTaskClass)) undoTask(task, button);
-
 });

@@ -27,6 +27,7 @@ const btnDeleteTaskClassFA = 'fa-trash-alt';
 const newTaskForm = document.querySelector('.new-task-form');
 const newTaskDesc = document.getElementById('new-task-desc');
 
+
 /*
  *
  * Classes
@@ -34,7 +35,7 @@ const newTaskDesc = document.getElementById('new-task-desc');
  */
 
 class Task {
-  constructor(description) {
+  constructor(description, id) {
     this._id = id;
     this._description = description;
     this._finished = false;
@@ -49,104 +50,87 @@ class Task {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//MEMO class taskList
-
-
-
 class Tasklist{
   constructor(tasks){
     this._tasks=[tasks];
     this._idCounter=0;
   }
   addTask(Task){
-this._tasks.push(Task);
-this._idCounter++;
+    this._tasks.push(Task);
+    this._idCounter++;
   }
-
-
 
   removeTask(id){
    let index= this._tasks.indexOf(id);
-this._tasks.splice(id,index);
-this._idCounter--;
+    this._tasks.splice(id,index);
   }
 }
 
+/*
+ *
+ * New list
+ *
+ */
+
+const newToDoList = new Tasklist();
 
 
 
 
+/*
+ *
+ * Functions
+ *
+ */
 
+const finishTask = (task, button) => {
 
-
-
-
-
-
-
-
-
-
-
-//prevent default reset on submit
-
-const newTaskFormSubmitHandler = event => {
-  event.preventDefault();
 }
 
-newTaskForm.addEventListener("submit", newTaskFormSubmitHandler);
+const undoTask = (task, button) => {
+
+}
+
+const deleteTask = task => {
+
+}
+
+
+
+
+/*
+ *
+ * Event listeners
+ *
+ */
+
+
+newTaskForm.addEventListener("submit", (event) => {
+  const id = newToDoList._idCounter;
+  const inputValue = newTaskDesc.value;
+  const newTask = new Task(inputValue, id);
+  const taskHTML = `<div class="task" id="task${id}">
+                      <p class="task-desc">${inputValue}</p>
+                      <button class="task-button finish-task fas fa-check"></button>
+                      <button class="task-button delete-task fas fa-trash-alt"></button>
+                    </div>`;
+  newToDoList.addTask(newTask);
+  todoList.innerHTML += taskHTML;
+  //prevent default reset on submit
+  event.preventDefault();
+});
+
+
+taskList.addEventListener("click", (event) => {
+  let task = event.target.parentNode;
+  let button = event.target;
+
+
+  //Button 'finish task'
+  if (button.classList.contains(btnFinishTaskClass)) finishTask(task, button);
+  //Button 'delete task'
+  else if (button.classList.contains(btnDeleteTaskClass)) deleteTask(task);
+  //Button 'undo task'
+  else if (button.classList.contains(btnUndoTaskClass)) undoTask(task, button);
+
+});

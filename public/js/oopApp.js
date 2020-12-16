@@ -93,6 +93,7 @@ const undoTask = (task, button) => {
 
 const deleteTask = task => {
   task.remove();
+  newToDoList.removeTask(task);
 
 }
 

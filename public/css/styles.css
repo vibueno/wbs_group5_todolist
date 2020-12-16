@@ -1,5 +1,21 @@
 /*-------- General Styles ------*/
 
+:root {
+  --color-darkest: #0c0c0c;
+  --color-very-dark: #1a1a1a;
+  --color-dark: #1f1f1f;
+  --color-medium: #282828;
+  --color-light: #ccc;
+
+  --bg-color-dark: #27243e;
+  --bg-color-light: #776fce;
+
+  --input-height: 45px;
+
+  --button-width: 45px;
+  --button-height: 45px;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -8,12 +24,16 @@
 
 html {
   max-width: 1920px;
-  font-size: 62.5%;
+  font-size: 12px;
 }
 
 body {
-  background: linear-gradient(180deg, #4003cf 5%, #0d041b 80%) no-repeat center
-    center fixed;
+  background: linear-gradient(
+      180deg,
+      var(--bg-color-light) 5%,
+      var(--bg-color-dark) 80%
+    )
+    no-repeat center center fixed;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -24,10 +44,23 @@ main {
 }
 
 h1 {
-  padding: 6rem 0;
-  font-size: 6rem;
+  margin: 2rem 0 0 0;
+  font-size: 10vw;
+  font-family: 'Philosopher', sans-serif;
+  font-weight: 300;
   text-align: center;
-  color: #ccc;
+  text-shadow: 2px 2px var(--color-light);
+  text-transform: uppercase;
+  text-decoration: line-through;
+  color: var(--color-darkest);
+}
+
+h2 {
+  font-size: 3vw;
+  font-family: 'Pacifico', cursive;
+  font-weight: 200;
+  text-align: center;
+  color: var(--color-light);
 }
 
 /*-------- Section New Task ------*/
@@ -37,94 +70,103 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 3rem auto 0 auto;
-  box-shadow: 0 6px 3px -3px #0c0c0c;
+  box-shadow: 0 6px 3px -3px var(--color-darkest);
+  border: 1px solid var(--color-light);
   border-radius: 1rem;
-  width: 55%;
-  min-height: 15rem;
-  background-color: #1a1a1a;
-  color: #ccc;
+  width: 75%;
+  min-height: 12rem;
+  background-color: var(--color-very-dark);
+  color: var(--color-light);
 }
 
 .new-task-desc {
   transition: box-shadow 0.2s;
+  overflow: hidden;
   margin: 0 4rem 0 0;
+  margin: 0 3% 0 5%;
   border: none;
-  width: 60%;
-  height: 3rem;
-  padding: 0 0 0 2%;
-  background-color: #282828;
+  padding: 0 0 0 1em;
+  width: 80%;
+  height: var(--input-height);
+  background-color: var(--color-medium);
   font-size: 2rem;
-  color: #ccc;
+  color: var(--color-light);
+}
+
+.new-task-desc::placeholder {
+  font-size: 1.5rem;
 }
 
 .new-task-desc:hover {
-  box-shadow: 0 0 4px #ccc;
+  box-shadow: 0 0 4px var(--color-light);
 }
 
 .new-task-submit {
   transition: box-shadow 0.2s;
   border: none;
   border-radius: 0.3rem;
-  width: 10%;
-  height: 3rem;
-  background-color: #282828;
+  margin: 0 5% 0 0;
+  width: var(--button-width);
+  height: var(--button-height);
+  background-color: var(--color-medium);
   cursor: pointer;
   font-size: 2rem;
   font-family: 'Montserrat', sans-serif;
-  color: #ccc;
+  color: var(--color-light);
 }
 
 .new-task-submit:hover {
-  box-shadow: 0 0 4px #ccc;
+  box-shadow: 0 0 4px var(--color-light);
 }
 
 /*-------- Section Task list ------*/
 
-h2 {
-  padding: 2rem 0;
-  font-size: 3.5rem;
-  text-align: center;
-}
-
 .task-list {
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-light);
   border-radius: 1rem;
-  margin: 1rem auto;
-  width: 50%;
+  margin: 3rem auto;
+  box-shadow: 0 6px 3px -3px var(--color-darkest);
+  width: 75%;
   min-height: 15rem;
-  background-color: #282828;
-  color: #ccc;
+  background-color: var(--color-medium);
+  color: var(--color-light);
 }
 .task-list-todo-wrapper,
 .task-list-finished-wrapper {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2.5rem 0;
-  background-color: #1f1f1f;
+  width: 100%;
+  min-height: 7.5rem;
+  background-color: var(--color-dark);
+}
+
+.task-list-todo-wrapper {
+  border-radius: 1rem 1rem 0 0;
 }
 
 .task-list-finished-wrapper {
-  border-top: 2px solid #282828;
+  border-top: 2px solid var(--color-medium);
   border-radius: 0 0 1rem 1rem;
 }
 
 .task {
+  align-items: center;
   display: flex;
-  justify-content: center;
   transition: box-shadow 0.2s;
   margin: 1rem 0;
   width: 95%;
-  height: 3rem;
-  background: #1a1a1a;
-  font-size: 1.8rem;
+  height: 3.5rem;
+  min-height: 50px;
+  background: var(--color-very-dark);
 }
 
 .task:hover {
-  box-shadow: 0 0 4px #ccc;
+  box-shadow: 0 0 4px var(--color-light);
 }
 
 .task.finished .task-desc {
@@ -132,7 +174,7 @@ h2 {
 }
 
 .task-desc {
-  margin: auto 0;
+  padding: 0 0 0 1em;
   width: 80%;
   height: 2.5rem;
   font-size: 2rem;
@@ -143,14 +185,15 @@ h2 {
   margin: auto 1rem;
   border: none;
   border-radius: 0.3rem;
-  width: 5%;
-  height: 2.5rem;
-  background: #1a1a1a;
+  min-width: var(--button-width);
+  min-height: var(--button-height);
+  background: var(--color-very-dark);
   cursor: pointer;
-  color: #ccc;
+  font-size: 20px;
+  color: var(--color-light);
 }
 
 .task-button:hover {
-  background: #ccc;
-  color: #1a1a1a;
+  background: var(--color-light);
+  color: var(--color-very-dark);
 }

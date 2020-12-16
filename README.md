@@ -53,11 +53,12 @@ _Methods_
 
 _Properties_
 
-- \_tasks: Array of Task
+- \_tasks: Task array
 - \_nextId: Number, default 0
 
 _Methods_
 
+- constructor (Task array)
 - addTask (Task)
 - removeTask (id)
 

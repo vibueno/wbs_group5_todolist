@@ -103,8 +103,9 @@ const finishTask = (task, button) => {
   doneList.append(task);
 
   for (item in taskArray) {
-    if(Task._id === targetID) {
-      Task.markAsDone();
+    if(item._id === targetID) {
+      item.markAsDone();
+      console.log(newToDoList);
     }
   }
 };
@@ -129,18 +130,17 @@ const undoTask = (task, button) => {
 
     for (item in taskArray) {
       if(item._id === targetID) {
-        Task.undoTask();
+        item.undoTask();
+        console.log(newToDoList);
       }
     }
-    console.log(newToDoList);
 }
 
 const deleteTask = task => {
   task.remove();
   newToDoList.removeTask(task);
+  console.log(newToDoList);
 }
-
-
 
 
 /*
@@ -161,6 +161,7 @@ newTaskForm.addEventListener("submit", (event) => {
                     </div>`;
   newToDoList.addTask(newTask);
   todoList.innerHTML += taskHTML;
+  event.target.reset();
   //prevent default reset on submit
   event.preventDefault();
 });

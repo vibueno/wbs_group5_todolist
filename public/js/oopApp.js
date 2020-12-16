@@ -42,11 +42,11 @@ class Task {
   }
 
   markAsDone() {
-    this.finished = true;
+    this._finished = true;
   }
 
   undoTask() {
-    this.finished = false;
+    this._finished = false;
   }
 }
 
@@ -83,12 +83,56 @@ const newToDoList = new Tasklist();
  *
  */
 
+
+ //move the task to Done section of the list
 const finishTask = (task, button) => {
+  const targetID = task.id;
+  const taskArray = newToDoList._tasks;
+  console.log(targetID);
+  console.log(newToDoList);
+  
+  //Changing button icons
+  button.classList.add(btnUndoTaskClassFA);
+  button.classList.remove(btnFinishTaskClassFA);
 
-}
+  //Changing button task classes
+  button.classList.add(btnUndoTaskClass);
+  button.classList.remove(btnFinishTaskClass);
 
+  task.classList.add(finishedTaskClass);
+  doneList.append(task);
+
+  for (item in taskArray) {
+    if(Task._id === targetID) {
+      Task.markAsDone();
+    }
+  }
+};
+
+
+//move task back to unfinished section of the list
 const undoTask = (task, button) => {
+    const targetID = task.id;
+    const taskArray = newToDoList._tasks;
+    console.log(targetID);
+  
+    //Changing button icons
+    button.classList.add(btnFinishTaskClassFA);
+    button.classList.remove(btnUndoTaskClassFA);
+  
+    //Changing button task classes
+    button.classList.add(btnFinishTaskClass);
+    button.classList.remove(btnUndoTaskClass);
+  
+    task.classList.remove(finishedTaskClass);
+    todoList.append(task);
 
+    for (item in taskArray) {
+      if(item._id === targetID) {
+        Task.undoTask();
+      }
+    }
+    console.log(newToDoList);
 }
 
 const deleteTask = task => {
@@ -109,7 +153,7 @@ newTaskForm.addEventListener("submit", (event) => {
   const id = newToDoList._idCounter;
   const inputValue = newTaskDesc.value;
   const newTask = new Task(inputValue, id);
-  const taskHTML = `<div class="task" id="task${id}">
+  const taskHTML = `<div class="task" id="${id}">
                       <p class="task-desc">${inputValue}</p>
                       <button class="task-button finish-task fas fa-check"></button>
                       <button class="task-button delete-task fas fa-trash-alt"></button>

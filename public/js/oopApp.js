@@ -81,7 +81,7 @@ const newToDoList = new Tasklist();
 
 //move the task to Done section of the list
 const finishTask = (task, button) => {
-  const targetID = task.id;
+  const targetID = parseInt(task.id);
   const taskArray = newToDoList._tasks;
 
   //Changing button icons
@@ -97,7 +97,7 @@ const finishTask = (task, button) => {
 
   for (let i = 0; i < taskArray.length; i++) {
     console.log(taskArray)
-    if(taskArray[i]._id === parseInt(targetID)) {
+    if(taskArray[i]._id === targetID) {
       taskArray[i].markAsDone();
       console.log(taskArray[i]);
     }
@@ -106,7 +106,7 @@ const finishTask = (task, button) => {
 
 //move task back to unfinished section of the list
 const undoTask = (task, button) => {
-  const targetID = task.id;
+  const targetID = parseInt(task.id);
   const taskArray = newToDoList._tasks;
 
   //Changing button icons
@@ -121,7 +121,7 @@ const undoTask = (task, button) => {
   todoList.append(task);
 
   for (let i = 0; i < taskArray.length; i++) {
-    if(taskArray[i]._id === parseInt(targetID)) {
+    if(taskArray[i]._id === targetID) {
       taskArray[i].undoTask();
       console.log(taskArray[i]);
     }

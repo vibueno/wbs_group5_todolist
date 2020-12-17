@@ -7,8 +7,8 @@
   --color-medium: #282828;
   --color-light: #ccc;
 
-  --bg-color-dark: #1c2a2a;
-  --bg-color-light: #87cdce;
+  --bg-color-dark: #87cdce;
+  --bg-color-light: #1c2a2a;
 
   --input-height: 45px;
 
@@ -49,10 +49,10 @@ h1 {
   font-family: 'Philosopher', sans-serif;
   font-weight: 300;
   text-align: center;
-  text-shadow: 2px 2px var(--color-light);
+  text-shadow: 4px 4px var(--color-darkest);
   text-transform: uppercase;
   text-decoration: line-through;
-  color: var(--color-darkest);
+  color: var(--color-light);
 }
 
 h2 {

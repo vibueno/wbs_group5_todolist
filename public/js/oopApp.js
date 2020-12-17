@@ -61,7 +61,8 @@ class Tasklist {
 
   removeTask(id) {
     let index = this._tasks.indexOf(id);
-    this._tasks.splice(id, index);
+    this._tasks.splice(index,1);
+    console.log(id);
   }
 }
 
@@ -130,9 +131,16 @@ const undoTask = (task, button) => {
 };
 
 const deleteTask = task => {
-  task.remove();
-  newToDoList.removeTask(task);
+ 
+  const targetID=parseInt(task.id);
+  
+  
+      newToDoList.removeTask(targetID);
+    
+   task.remove();
   console.log(newToDoList);
+  
+  
 };
 
 /*

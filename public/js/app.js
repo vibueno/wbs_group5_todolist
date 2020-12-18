@@ -9,7 +9,7 @@ import {
   cssClassBtnUndoTask,
   cssClassBtnDelTask
 } from './constants.js';
-import { functions } from './functions.js';
+import { addTask, finishTask, undoTask, deleteTask } from './functions.js';
 
 //Creating new list
 const taskList = new Tasklist();
@@ -18,8 +18,8 @@ const taskList = new Tasklist();
 const exampleTask1 = new Task('Walk the mini Rothweiler');
 const exampleTask2 = new Task('Water the giant bonsay');
 
-functions.addTask(taskList, exampleTask1);
-functions.addTask(taskList, exampleTask2);
+addTask(taskList, exampleTask1);
+addTask(taskList, exampleTask2);
 
 /*
  *
@@ -35,7 +35,7 @@ domNewTaskForm.addEventListener('submit', event => {
   const newTaskDesc = domNewTaskDescInput.value;
   const newTask = new Task(newTaskDesc);
 
-  functions.addTask(taskList, newTask);
+  addTask(taskList, newTask);
 
   domNewTaskForm.reset();
   //prevent default page refresh on submit
@@ -53,12 +53,12 @@ domTaskList.addEventListener('click', event => {
 
     //Button 'finish task'
     if (domBtn.classList.contains(cssClassBtnFinishTask))
-      functions.finishTask(taskList, domTask, domBtn);
+      finishTask(taskList, domTask, domBtn);
     //Button 'delete task'
     else if (domBtn.classList.contains(cssClassBtnDelTask))
-      functions.deleteTask(taskList, domTask);
+      deleteTask(taskList, domTask);
     //Button 'undo task'
     else if (domBtn.classList.contains(cssClassBtnUndoTask))
-      functions.undoTask(taskList, domTask, domBtn);
+      undoTask(taskList, domTask, domBtn);
   }
 });

@@ -13,9 +13,9 @@
 export default class Task {
   /**
    * @constructor
-   * @description Creates a new Tasklist.
+   * @description Creates a new Task.
    *
-   * @param {String} description  Task content for new task.
+   * @param {String} description Task content for new task.
    */
   constructor(description) {
     this._id = null;
@@ -33,7 +33,7 @@ export default class Task {
   }
 
   /**
-   * @description Returns task id.
+   * @description Sets task id.
    *
    * @param {Number} Id of task.
    */
@@ -44,7 +44,7 @@ export default class Task {
   /**
    * @description Returns task description.
    *
-   * @returns {Number} Id of task.
+   * @returns {String} Description of task.
    */
   get Description() {
     return this._description;

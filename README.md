@@ -13,7 +13,7 @@
 
 This project is a classic TODO list, created for a WBS Coding School assignment.
 
-![](public/img/demo.gif)
+![](doc/img/demo.gif)
 
 ## Organisation
 

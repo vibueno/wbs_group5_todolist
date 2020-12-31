@@ -82,7 +82,6 @@ h2 {
 .new-task-desc {
   transition: box-shadow 0.2s;
   overflow: hidden;
-  margin: 0 4rem 0 0;
   margin: 0 3% 0 5%;
   border: none;
   padding: 0 0 0 1em;

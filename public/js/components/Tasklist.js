@@ -56,7 +56,7 @@ export default class TaskList {
    * @param {Number} id Id of the task to be removed.
    */
   deleteTask(id) {
-    const index = this.Tasks.findIndex(task => task.getId === id);
+    const index = this._tasks.findIndex(task => task.Id === id);
     this._tasks.splice(index, 1);
   }
 }

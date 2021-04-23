@@ -3,29 +3,24 @@
 ## Table of Contents
 
 - [Description](#description)
-- [Organisation](#organisation)
-- [Design](#design)
 - [Live](#live)
+- [Design](#design)
 - [Programming](#programming)
 - [Credits](#credits)
 
 ## Description
 
-This project is a classic TODO list, created for a WBS Coding School assignment.
+This project is a classic TODO list that was developed during the _Full-Stack Web & App Development_ training at [WBS Coding School](https://www.wbscodingschool.com/).
 
 ![](doc/img/demo.gif)
 
-## Organisation
+## Live
 
-- [Trello board](https://trello.com/b/uyk4uOu1/week-three-team-project)
+For a live version of _Inactivity_, visit [GitHub Pages](https://vibueno.github.io/wbs_group5_todolist).
 
 ## Design
 
-- [Wireframe](https://memocan40.github.io/TodoList/design/wireframe.png)
-
-## Live
-
-For a live version of _TODO_, visit [GitHub Pages](https://memocan40.github.io/TodoList).
+- [Wireframe](https://vibueno.github.io/wbs_group5_todolist/design/wireframe.png)
 
 ## Programming
 
